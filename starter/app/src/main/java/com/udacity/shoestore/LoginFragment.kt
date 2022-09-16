@@ -9,6 +9,7 @@ import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.udacity.shoestore.databinding.FragmentLoginBinding
 
 class LoginFragment : Fragment() {
