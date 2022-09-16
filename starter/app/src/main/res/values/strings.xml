@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">ShoeStore</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="email">Email</string>
+    <string name="login">Login</string>
+    <string name="password">Password</string>
+    <string name="hello_there">Hello There!</string>
+    <string name="new_login">New Login</string>
+    <string name="welcome_text">Welcome to our Shoes Store</string>
+    <string name="welcome_desc">You can browse our shoes i tems and select your preferred..</string>
+    <string name="get_started">Get Started</string>
+    <string name="start_now">Start Now</string>
+    <string name="instructions_text">Our shoe store primarily sells affordable athletic, casual, and dress shoes at a discounted price. The brands are usually on the lower-end.</string>
+    <string name="instructions_sub_title">Your place to find all you want</string>
+    <string name="instructions_titile">Shoes Stores</string>
 </resources>
