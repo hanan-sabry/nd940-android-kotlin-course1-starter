@@ -1,39 +1,54 @@
 package com.udacity.shoestore
 
 import android.os.Bundle
+import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
-import androidx.databinding.ViewDataBinding
+import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.navigation.Navigation
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
 import com.udacity.shoestore.databinding.FragmentLoginBinding
 
 class LoginFragment : Fragment() {
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val binding: FragmentLoginBinding = FragmentLoginBinding.inflate(inflater, container, false)
-        binding.newLoginButton.setOnClickListener{view: View ->
-            run {
-                view.findNavController().navigate(R.id.action_loginFragment_to_welcomFragment)
-            }
+        binding.newLoginButton.setOnClickListener { view: View ->
+            val email = binding.emailEditText.text.toString()
+            val password = binding.passwordEditText.text.toString()
+            navigateToWelcomeScreen(email, password, view)
         }
-        binding.exitAccountLoginButton.setOnClickListener{view: View ->
-            run {
-                view.findNavController().navigate(R.id.action_loginFragment_to_welcomFragment)
-            }
+        binding.exitAccountLoginButton.setOnClickListener { view: View ->
+            val email = binding.emailEditText.text.toString()
+            val password = binding.passwordEditText.text.toString()
+            navigateToWelcomeScreen(email, password, view)
         }
         return binding.root
     }
 
+    private fun validateEmailAndPassword(email: String, password: String): Boolean {
+        val validEmail = Patterns.EMAIL_ADDRESS.matcher(email).matches()
+        return when {
+            !validEmail -> {
+                Toast.makeText(context, "Not valid email address!!", Toast.LENGTH_SHORT).show()
+                false
+            }
+            email.isEmpty() || password.isEmpty() -> {
+                Toast.makeText(context, "You must enter email and password!!", Toast.LENGTH_SHORT)
+                    .show()
+                false
+            }
+            else -> true
+        }
+    }
+
+    private fun navigateToWelcomeScreen(email: String, password: String, view: View) {
+        if (validateEmailAndPassword(email, password)) {
+            view.findNavController().navigate(R.id.action_loginFragment_to_welcomFragment)
+        }
+    }
 }
