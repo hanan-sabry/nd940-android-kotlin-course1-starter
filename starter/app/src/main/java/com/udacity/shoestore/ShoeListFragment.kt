@@ -1,9 +1,7 @@
 package com.udacity.shoestore
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -25,6 +23,7 @@ class ShoeListFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         val binding = FragmentShoeListBinding.inflate(inflater, container, false)
+        setHasOptionsMenu(true)
         binding.addShoeFab.setOnClickListener { view: View ->
             view.findNavController().navigate(R.id.action_shoeListFragment_to_addShoeFragment)
         }
@@ -42,7 +41,18 @@ class ShoeListFragment : Fragment() {
             }
         })
 
-
         return binding.root
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.shoes_list_menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.logout) {
+            view?.findNavController()?.navigateUp()
+        }
+        return super.onOptionsItemSelected(item)
     }
 }
