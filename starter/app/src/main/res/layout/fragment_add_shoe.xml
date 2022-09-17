@@ -29,7 +29,6 @@
             android:layout_weight="4"
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
-            android:text="shoe name"
             android:background="@drawable/edit_text_bg_stroke"/>
 
     </LinearLayout>
@@ -80,6 +79,7 @@
             android:layout_width="0dp"
             android:layout_height="48dp"
             android:layout_weight="4"
+            android:inputType="numberDecimal"
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
             android:background="@drawable/edit_text_bg_stroke"/>
@@ -106,8 +106,10 @@
             android:layout_width="0dp"
             android:layout_height="100dp"
             android:layout_weight="4"
+            android:paddingTop="16dp"
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
+            android:gravity="top"
             android:background="@drawable/edit_text_bg_stroke"/>
 
     </LinearLayout>

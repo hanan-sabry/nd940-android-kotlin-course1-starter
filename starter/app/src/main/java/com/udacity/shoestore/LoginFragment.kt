@@ -33,13 +33,13 @@ class LoginFragment : Fragment() {
     private fun validateEmailAndPassword(email: String, password: String): Boolean {
         val validEmail = Patterns.EMAIL_ADDRESS.matcher(email).matches()
         return when {
-            !validEmail -> {
-                Toast.makeText(context, "Not valid email address!!", Toast.LENGTH_SHORT).show()
-                false
-            }
             email.isEmpty() || password.isEmpty() -> {
                 Toast.makeText(context, "You must enter email and password!!", Toast.LENGTH_SHORT)
                     .show()
+                false
+            }
+            !validEmail -> {
+                Toast.makeText(context, "Not valid email address!!", Toast.LENGTH_SHORT).show()
                 false
             }
             else -> true
@@ -47,8 +47,8 @@ class LoginFragment : Fragment() {
     }
 
     private fun navigateToWelcomeScreen(email: String, password: String, view: View) {
-//        if (validateEmailAndPassword(email, password)) {
+        if (validateEmailAndPassword(email, password)) {
             view.findNavController().navigate(R.id.action_loginFragment_to_welcomFragment)
-//        }
+        }
     }
 }

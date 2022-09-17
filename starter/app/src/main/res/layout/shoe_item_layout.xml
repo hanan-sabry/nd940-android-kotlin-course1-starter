@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_margin="16dp"
+    android:elevation="16dp"
+    app:cardCornerRadius="16dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/company_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/ligherGray"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Company Name" />
+
+        <TextView
+            android:id="@+id/shoe_name_lbl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="@string/shoe_name"
+            android:textColor="@color/colorAccent"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/company_value" />
+
+        <TextView
+            android:id="@+id/shoe_name_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@id/shoe_name_lbl"
+            app:layout_constraintStart_toEndOf="@id/shoe_name_lbl"
+            app:layout_constraintTop_toTopOf="@id/shoe_name_lbl"
+            tools:text="Shoe Name" />
+
+        <TextView
+            android:id="@+id/size_lbl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="@string/size"
+            android:textSize="14sp"
+            android:textColor="@color/colorAccent"
+            app:layout_constraintStart_toEndOf="@id/shoe_name_value"
+            app:layout_constraintTop_toTopOf="@id/shoe_name_lbl" />
+
+        <TextView
+            android:id="@+id/size_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@id/shoe_name_lbl"
+            app:layout_constraintStart_toEndOf="@id/size_lbl"
+            app:layout_constraintTop_toTopOf="@id/shoe_name_lbl"
+            tools:text="38" />
+
+        <TextView
+            android:id="@+id/desc_value"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/shoe_name_lbl"
+            tools:text="This is the description of the new added shoe" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

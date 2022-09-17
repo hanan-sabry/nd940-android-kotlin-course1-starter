@@ -1,16 +1,23 @@
 package com.udacity.shoestore
 
 import android.os.Bundle
-import android.os.TokenWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 import com.udacity.shoestore.databinding.FragmentShoeListBinding
+import com.udacity.shoestore.models.Shoe
+import com.udacity.shoestore.viewmodels.ShoesSharedViewModel
+import kotlinx.android.synthetic.main.shoe_item_layout.view.*
 
 class ShoeListFragment : Fragment() {
+
+    private val shoeSharedViewModel: ShoesSharedViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -21,14 +28,21 @@ class ShoeListFragment : Fragment() {
         binding.addShoeFab.setOnClickListener { view: View ->
             view.findNavController().navigate(R.id.action_shoeListFragment_to_addShoeFragment)
         }
-        if (!arguments!!.isEmpty) {
-            val args = ShoeListFragmentArgs.fromBundle(arguments!!)
-            Toast.makeText(
-                context,
-                "Shoe Item Name ${args.shoeItem.name}, size = ${args.shoeItem.size}",
-                Toast.LENGTH_SHORT
-            ).show()
-        }
+
+        shoeSharedViewModel.shoeList.observe(viewLifecycleOwner, Observer { shoeList ->
+            for (shoe: Shoe in shoeList) {
+                val shoeItemViewInflater = LayoutInflater.from(context).inflate(R.layout.shoe_item_layout, null)
+                shoeItemViewInflater.shoe_name_value.text = shoe.name
+                shoeItemViewInflater.company_value.text = shoe.company
+                shoeItemViewInflater.size_value.text = shoe.size.toString()
+                shoeItemViewInflater.desc_value.text = shoe.description
+                val layoutParams: LinearLayout.LayoutParams = LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+                layoutParams.bottomMargin = 24
+                binding.shoesListLayout.addView(shoeItemViewInflater, binding.shoesListLayout.childCount, layoutParams)
+            }
+        })
+
+
         return binding.root
     }
 }
