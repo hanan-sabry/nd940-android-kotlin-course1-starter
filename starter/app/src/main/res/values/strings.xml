@@ -14,4 +14,9 @@
     <string name="instructions_text">Our shoe store primarily sells affordable athletic, casual, and dress shoes at a discounted price. The brands are usually on the lower-end.</string>
     <string name="instructions_sub_title">Your place to find all you want</string>
     <string name="instructions_titile">Shoes Stores</string>
+    <string name="description">Description</string>
+    <string name="save">Save</string>
+    <string name="shoe_size">Shoe Size</string>
+    <string name="company">Company</string>
+    <string name="shoe_name">Shoe Name</string>
 </resources>

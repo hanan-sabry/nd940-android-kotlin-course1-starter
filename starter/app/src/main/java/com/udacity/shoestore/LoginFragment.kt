@@ -47,8 +47,8 @@ class LoginFragment : Fragment() {
     }
 
     private fun navigateToWelcomeScreen(email: String, password: String, view: View) {
-        if (validateEmailAndPassword(email, password)) {
+//        if (validateEmailAndPassword(email, password)) {
             view.findNavController().navigate(R.id.action_loginFragment_to_welcomFragment)
-        }
+//        }
     }
 }

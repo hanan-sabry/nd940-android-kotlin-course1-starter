@@ -44,10 +44,22 @@
         <action
             android:id="@+id/action_shoeListFragment_to_addShoeFragment"
             app:destination="@id/addShoeFragment" />
+        <argument
+            android:name="shoeItem"
+            app:argType="com.udacity.shoestore.models.Shoe" />
     </fragment>
     <fragment
         android:id="@+id/addShoeFragment"
         android:name="com.udacity.shoestore.AddShoeFragment"
         android:label="Add New Shoe"
-        tools:layout="@layout/fragment_add_shoe" />
+        tools:layout="@layout/fragment_add_shoe" >
+        <argument
+            android:name="shoeItem"
+            app:argType="com.udacity.shoestore.models.Shoe" />
+        <action
+            android:id="@+id/action_addShoeFragment_to_shoeListFragment2"
+            app:destination="@id/shoeListFragment"
+            app:popUpTo="@id/shoeListFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
 </navigation>
