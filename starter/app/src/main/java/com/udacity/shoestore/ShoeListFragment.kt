@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.*
 import android.widget.LinearLayout
 import android.widget.Toast
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.Observer
@@ -22,11 +23,14 @@ class ShoeListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val binding = FragmentShoeListBinding.inflate(inflater, container, false)
+        val binding: FragmentShoeListBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_shoe_list, container, false)
         setHasOptionsMenu(true)
         binding.addShoeFab.setOnClickListener { view: View ->
             view.findNavController().navigate(R.id.action_shoeListFragment_to_addShoeFragment)
         }
+
+        binding.sharedViewModel = shoeSharedViewModel
+        binding.lifecycleOwner = this
 
         shoeSharedViewModel.shoeList.observe(viewLifecycleOwner, Observer { shoeList ->
             for (shoe: Shoe in shoeList) {

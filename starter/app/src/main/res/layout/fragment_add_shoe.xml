@@ -1,128 +1,142 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Using LinearLayout as all fields lined verticaly each under the other-->
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/white"
-    android:orientation="vertical"
-    tools:context=".AddShoeFragment">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+            name="sharedViewModel"
+            type="com.udacity.shoestore.viewmodels.ShoesSharedViewModel" />
+    </data>
+
+    <!-- Using LinearLayout as all fields lined verticaly each under the other-->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginTop="16dp"
-        android:weightSum="6">
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical"
+        tools:context=".AddShoeFragment">
 
-        <TextView
-            android:layout_width="0dp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:text="@string/shoe_name" />
+            android:orientation="horizontal"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginTop="16dp"
+            android:weightSum="6">
 
-        <EditText
-            android:id="@+id/shoe_name_edit_text"
-            android:layout_width="0dp"
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="@string/shoe_name" />
+
+            <EditText
+                android:id="@+id/shoe_name_edit_text"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="4"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:text="@={sharedViewModel.shoe.name}"
+                android:background="@drawable/edit_text_bg_stroke"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginTop="16dp"
+            android:weightSum="6">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="@string/company" />
+
+            <EditText
+                android:id="@+id/company_edit_text"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="4"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:text="@={sharedViewModel.shoe.company}"
+                android:background="@drawable/edit_text_bg_stroke"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginTop="16dp"
+            android:weightSum="6">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="@string/shoe_size" />
+
+            <EditText
+                android:id="@+id/shoe_size_edit_text"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="4"
+                android:inputType="numberDecimal"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:text="@={sharedViewModel.shoe.size}"
+                android:background="@drawable/edit_text_bg_stroke"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginTop="16dp"
+            android:weightSum="6">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="@string/description" />
+
+            <EditText
+                android:id="@+id/description_edit_text"
+                android:layout_width="0dp"
+                android:layout_height="100dp"
+                android:layout_weight="4"
+                android:paddingTop="16dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:gravity="top"
+                android:text="@={sharedViewModel.shoe.description}"
+                android:background="@drawable/edit_text_bg_stroke"/>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/save_button"
+            android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:layout_weight="4"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:background="@drawable/edit_text_bg_stroke"/>
+            android:layout_margin="24dp"
+            android:background="@drawable/solid_bg_accent"
+            android:text="@string/save"
+            android:textAllCaps="false"
+            android:textColor="@color/white" />
 
     </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginTop="16dp"
-        android:weightSum="6">
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:text="@string/company" />
-
-        <EditText
-            android:id="@+id/company_edit_text"
-            android:layout_width="0dp"
-            android:layout_height="48dp"
-            android:layout_weight="4"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:background="@drawable/edit_text_bg_stroke"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginTop="16dp"
-        android:weightSum="6">
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:text="@string/shoe_size" />
-
-        <EditText
-            android:id="@+id/shoe_size_edit_text"
-            android:layout_width="0dp"
-            android:layout_height="48dp"
-            android:layout_weight="4"
-            android:inputType="numberDecimal"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:background="@drawable/edit_text_bg_stroke"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginTop="16dp"
-        android:weightSum="6">
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:text="@string/description" />
-
-        <EditText
-            android:id="@+id/description_edit_text"
-            android:layout_width="0dp"
-            android:layout_height="100dp"
-            android:layout_weight="4"
-            android:paddingTop="16dp"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:gravity="top"
-            android:background="@drawable/edit_text_bg_stroke"/>
-
-    </LinearLayout>
-
-    <Button
-        android:id="@+id/save_button"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_margin="24dp"
-        android:background="@drawable/solid_bg_accent"
-        android:text="@string/save"
-        android:textAllCaps="false"
-        android:textColor="@color/white" />
-
-</LinearLayout>
+</layout>

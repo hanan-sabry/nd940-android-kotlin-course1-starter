@@ -1,33 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Using RelativeLayout as the root of the layout to can put the FAB button at the bottom end screen,
  and at the same time didn't scroll with the view-->
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <ScrollView
+    <data>
+        <variable
+            name="sharedViewModel"
+            type="com.udacity.shoestore.viewmodels.ShoesSharedViewModel" />
+    </data>
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".ShoeListFragment">
+        android:layout_height="match_parent">
 
-
-        <LinearLayout
-            android:id="@+id/shoes_list_layout"
+        <ScrollView
             android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".ShoeListFragment">
+
+
+            <LinearLayout
+                android:id="@+id/shoes_list_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="16dp"
+                android:orientation="vertical">
+
+            </LinearLayout>
+        </ScrollView>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/add_shoe_fab"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
             android:layout_margin="16dp"
-            android:orientation="vertical">
+            android:src="@drawable/ic_baseline_add_24" />
+    </RelativeLayout>
 
-        </LinearLayout>
-    </ScrollView>
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/add_shoe_fab"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_margin="16dp"
-        android:src="@drawable/ic_baseline_add_24" />
-</RelativeLayout>
+</layout>
