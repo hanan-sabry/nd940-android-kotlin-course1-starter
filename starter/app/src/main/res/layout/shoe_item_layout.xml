@@ -8,6 +8,7 @@
     android:elevation="16dp"
     app:cardCornerRadius="16dp">
 
+    <!-- Using ConstraintLayout here to enable me position fields in a flexible way-->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

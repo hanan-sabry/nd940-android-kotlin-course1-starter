@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- using Relative Layout as I divided my screen to three parts:
+    1- top for the app logo,
+    2- instructions at the center,
+    3- start button at the bottom
+    , so I can make use of features
+    (layout_centerInParent, layout_alignParentTop and layout_alignParentBottom-->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
